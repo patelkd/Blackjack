@@ -1,37 +1,57 @@
 public class Card {
 
-	private int number;
-	private String suit;
-	private int spades = 0;
-	private int hearts = 1;
-	private	int clubs = 2;
-	private	int diamonds = 3;
 
-	public Card(String suit) {
-		int spades = 0;
-		int hearts = 1;
-		int clubs = 2;
-		int diamonds = 3;
+		private String suit;
+		private int value;
+		private int value2;
 
-	}
-
-	public Card(int number) {
-		int jack;
-		int queen;
-		int king;
-	}
-
-	public int printCard(String suit, int number) {
-		for (int i =0; i<=diamonds; i++) {
-			for (int j=0; j>10; j++) {
-				System.out.println(number + "of" + suit);
-			}
+		public Card(int value, String suit) {
+			this.value = value;
+			this.suit = suit;
 		}
-	}
 
-	public static void main(String[] args) {
-		printCard("spades", 4);
-	}
+		public Card (String suit, int value, int value2) {
+			this.suit = suit;
+			this.value = value;
+			this.value2= value2;
+		}
+
+
+
+'
+
+	// private int number;
+	// private String suit;
+	// private int spades = 0;
+	// private int hearts = 1;
+	// private	int clubs = 2;
+	// private	int diamonds = 3;
+
+	// public Card(String suit) {
+	// 	int spades = 0;
+	// 	int hearts = 1;
+	// 	int clubs = 2;
+	// 	int diamonds = 3;
+
+	// }
+
+	// public Card(int number) {
+	// 	int jack;
+	// 	int queen;
+	// 	int king;
+	// }
+
+	// public int printCard(String suit, int number) {
+	// 	for (int i =0; i<=diamonds; i++) {
+	// 		for (int j=0; j>10; j++) {
+	// 			System.out.println(number + "of" + suit);
+	// 		}
+	// 	}
+	// }
+
+	// public static void main(String[] args) {
+	// 	printCard("spades", 4);
+	// }
 
 	// public Card(String suit, int number) {
 
