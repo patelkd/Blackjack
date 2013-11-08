@@ -32,14 +32,19 @@ public class Card {
             String path = null;
             Image image = null;
 
-            try {
-                path = "images" + File.separator + name + ".jpg";
-                //images/JurassicPark.jpg
-                image = ImageIO.read(new File(path));
-            } catch(IOException e) {
-                System.out.println("Could not load image at path: " + path);
-                System.exit(1);
-            }
+            
+                  
+
+                try {
+                     path = "cards" + File.separator + name + ".png";
+                     //images/JurassicPark.jpg
+                     image = ImageIO.read(new File(path));
+                } catch(IOException e) {
+                     System.out.println("Could not load image at path: " + path);
+                     System.exit(1);
+                }
+
+              
 
             return image;
         }
@@ -47,6 +52,4 @@ public class Card {
  
 
   }
-
-
  
