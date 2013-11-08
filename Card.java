@@ -9,16 +9,16 @@ import javax.imageio.ImageIO;
 
 public class Card {
 
-		private String name;
-		private int value;
+        private String name;
+        private int value;
         private Image image;
 
 
-		public Card (String name, int value) {
-			this.name = name;
-			this.value = value;
+        public Card (String name, int value) {
+            this.name = name;
+            this.value = value;
             this.image = Card.loadImage(name);
-		}
+        }
 
         public String name() {
             return this.name;
@@ -47,5 +47,6 @@ public class Card {
  
 
   }
+
 
  
