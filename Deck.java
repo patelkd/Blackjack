@@ -1,10 +1,12 @@
 import java.util.Random;
+import java.awt.*;
+import java.applet.*;
 
 public class Deck {
 
     private Card[] deck = new Card[52];
     private String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
-    private String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+    private String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     private int value;
 
 
@@ -50,17 +52,23 @@ public class Deck {
         }
     }
 
+    public void draw (Graphics g) {
+        int count = 0;
+        for (int i=0; i<52; i++) {
+            this.deck[i].draw(g, new Rectangle(60+(60*i),60, 20, 30));
+            count++;
+        }
+    }
+
       
     public static void main(String[] args) {
         Deck deck = new Deck();
         deck.shuffle();
         deck.print();
+
     }
 
    
 
 
 }
-
-
-
