@@ -3,14 +3,18 @@ import java.applet.*;
 
 public class TestApplet extends Applet {
 
-        private Card card;
+        private Deck test;
 
         public void init() {
-                card = new Card("Deck", 10);
+                this.test = new Deck();
         }
 
         public void paint(Graphics g) {
-                card.draw(g, new Rectangle(50, 50, 200, 300));
+              test.draw(g);
+            
         }
+
+
+
 
 }
