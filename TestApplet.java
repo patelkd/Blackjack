@@ -9,8 +9,16 @@ public class TestApplet extends Applet {
                 this.test = new Deck();
         }
 
+        public void actionPerformed (ActionEvent ae) {
+
+        }
+
+
+
+
         public void paint(Graphics g) {
-              test.draw(g);
+        	super.paint(g);
+            test.draw(g);
             
         }
 
