@@ -52,3 +52,5 @@ public class Person {
 
 
 }
+
+http://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
