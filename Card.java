@@ -6,50 +6,84 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.Dimension;
 
-public class Card {
+public class Card extends JLabel {
 
-        private String name;
-        private int value;
-        private Image image;
+        private int faceNumber;
+        private int[] values;
+        private String suit;
+        private boolean faceDown;
 
+        public Card(int faceNumber, String suit, int[] values) {
+                this.faceNumber = faceNumber;
+                this.values = values;
+                this.suit = suit;
+                this.faceDown = false;
 
-        public Card (String name, int value) {
-            this.name = name;
-            this.value = value;
-            this.image = Card.loadImage(name);
+                this.setIcon(new ImageIcon(this.loadImage(this.toString(), this.faceDown, 150, 200)));
         }
 
-        public String name() {
-            return this.name;
+        public boolean isFacedown() {
+                return this.faceDown;
         }
 
-        public void draw(Graphics g, Rectangle r) {
-            g.drawImage(image, r.x, r.y, r.width, r.height, null);
+        public void setFaceDown(boolean state) {
+                this.faceDown = state;
+                this.setIcon(new ImageIcon(this.loadImage(this.toString(), state, 150, 200)));
         }
 
-        private static Image loadImage(String name) {
-            String path = null;
-            Image image = null;
+        public int getFaceNumber() {
+                return this.faceNumber;
+        }
 
-            
-                  
+        public int[] getValues() {
+                return this.values;
+        }
+
+        public String getSuit() {
+                return this.suit;
+        }
+
+        private static Image loadImage(String name, boolean faceDown, int width, int height) {
+                String path = null;
+                Image image = null;
+                Image scaled = null;
 
                 try {
-                     path = "cards" + File.separator + name + ".png";
-                     //images/JurassicPark.jpg
-                     image = ImageIO.read(new File(path));
-                } catch(IOException e) {
-                     System.out.println("Could not load image at path: " + path);
-                     System.exit(1);
+                        if (faceDown) {
+                                path = "cards" + File.separator + "back-blue.png"; 
+                        } else {
+                                path = "cards" + File.separator + name + ".png";
+                        }
+                        image = ImageIO.read(new File(path));
+                        scaled = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                } catch (IOException e) {
+                        System.out.println("Could not load card at path: " + path);
+                        e.printStackTrace();
                 }
 
-              
-
-            return image;
+                return scaled;
         }
 
- 
+        public String getCardFace() {
+                switch(this.faceNumber) {
+                        case 1:
+                                return "A";
+                        case 11:
+                                return "J";
+                        case 12:
+                                return "Q";
+                        case 13:
+                                return "K";
+                        default:
+                                return ("" + this.faceNumber);
+                }
+        }
 
-  }
- 
+        public String toString() {
+                return this.getCardFace() + this.getSuit(); 
+        }
+
+}
